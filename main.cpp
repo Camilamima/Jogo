@@ -1,9 +1,21 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <iostream>
+
 #include "Jogo.h"
-int main() {
-	Jogo a;
+#include "GerenciadorGrafico.h"
+#include "GerenciadorColisoes.h"
+#include "Ente.h"
 
-	a.executar();
+using namespace sf;
 
-	return 0;
+//Main function
+int main()
+{
+    //Initializing the game
+    Jogo game;
+
+    //Main game loop (yes this is a loop)
+    game.executar();
+
+    return 0;
 }
