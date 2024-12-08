@@ -7,18 +7,23 @@
 #include <SFML/System.hpp>
 
 #include "Ente.h"
+#include "GerenciadorGrafico.h"
 
 using namespace sf;
 
-//class Ente;
+class Ente;
+class Gerenciador_Grafico;
 
 class Jogo {
 	public:
 		Jogo();
 		~Jogo();
 
+		VideoMode videoMode;
+		RenderWindow* window;
+
 		//RectangleShape greenBox;
-		//Ente* theBox;
+		Ente* theBox;
 
 		//Core game functions
 		void update();
@@ -31,12 +36,12 @@ class Jogo {
 	protected:
 
 	private:
-		RenderWindow* window;
-		VideoMode videoMode;
+		Gerenciador_Grafico* gerGra;
 
 		Event event;
 
-		void initVariables();
 		void initWindow();
+		void initManagers();
+		void initVariables();
 		void initEnemies();
 };

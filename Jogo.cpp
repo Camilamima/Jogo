@@ -7,6 +7,7 @@ Jogo::Jogo(){
 	this->initVariables();
 	this->initWindow();
 	this->initEnemies();
+	this->initManagers();
 }
 
 Jogo::~Jogo(){
@@ -35,6 +36,10 @@ void Jogo::pollEvents(){
 }
 
 //Variables initialization
+void Jogo::initManagers(){
+	gerGra = new Gerenciador_Grafico(this);
+}
+
 void Jogo::initVariables(){
 	this->window = nullptr;
 }
@@ -48,7 +53,7 @@ void Jogo::initWindow(){
 }
 
 void Jogo::initEnemies(){
-	//this->theBox = new Ente;
+	this->theBox = new Ente;
 }
 
 //Render drawables
@@ -57,7 +62,13 @@ void Jogo::render() {
 	//clear old frame
 	this->window->clear();
 
-	//draw game objects (here we should call the graphics manager?)
+	//draw game objects (from a list of drawables)
+	gerGra->desenharEnte(theBox);
+	/*
+	for(i in ipairs(list of drawables)){
+		gerGra->desenharEnte(i);
+	}
+	*/
 	//this->window->draw(this->theBox->hitBox);
 
 	//display the new frame with all drawables

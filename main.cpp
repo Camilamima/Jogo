@@ -14,7 +14,7 @@ int main()
     //Initializing the game
     Jogo game;
 
-    //Main game loop (yes this is a loop)
+    //Main game loop
     game.executar();
 
     return 0;
